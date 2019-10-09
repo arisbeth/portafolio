@@ -1,31 +1,28 @@
-<?php  
+<?php
+$remitente = $_POST['email'];
+$destinatario = 'arisbeth.hg@gmail.com'; // en esta línea va el mail del destinatario.
+$asunto = 'Consulta'; // acá se puede modificar el asunto del mail
+if (!$_POST){
+?>
 
-	$name = $_GET['name'];
-	$email = $_GET['email'];
-	$message = isset( $_GET['message'] ) ? $_GET['message'] : '-';
+<?php
+}else{
+	 
+    $cuerpo = "Nombre y apellido: " . $_POST["name"] . "\r\n"; 
+    $cuerpo .= "Email: " . $_POST["email"] . "\r\n";
+	$cuerpo .= "Consulta: " . $_POST["message"] . "\r\n";
+	//las líneas de arriba definen el contenido del mail. Las palabras que están dentro de $_POST[""] deben coincidir con el "name" de cada campo. 
+	// Si se agrega un campo al formulario, hay que agregarlo acá.
 
-	// Cambiar por  arisbeth.hg@sunland.mx
-	$to = 'arisbeth.hg@gmail.com';
-	$subject = 'Contacto desde portafolio';
-	$headers = 'From: Hola Arisbeth <arisbeth.hg@gmail.com>' . "\r\n";
-	$headers .= "Reply-To: arisbeth.hg@gmail.com\r\n";
-	$headers .= "Return-Path: arisbeth.hg@gmail.com\r\n";
-	$headers .= "CC: arisbeth.hg@gmail.com\r\n";
-	$headers .= "BCC: arisbeth.hg@gmail.com\r\n";
-	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-	$message = '<html><body>';
-	$message .= '<p>'.$name.' te a contactado desde tu bellisimo portafolio web ' . $instrument . '</p>';
-	$message .= '<p>Email: '. $email . '</p>';
-	if( $message != '' ) $message .= '<p>Mensaje: '. $message . '</p>';
-	$message .= '</body></html>';
+    $headers  = "MIME-Version: 1.0\n";
+    $headers .= "Content-type: text/plain; charset=utf-8\n";
+    $headers .= "X-Priority: 3\n";
+    $headers .= "X-MSMail-Priority: Normal\n";
+    $headers .= "X-Mailer: php\n";
+    $headers .= "From: \"".$_POST['name']." ".$_POST['email']."\" <".$remitente.">\n";
 
-	mail($to, $subject, $message, $headers );
-
-	$message = array(
-		'error'		=> 0,
-		'name'	=> $name,
-		);
-	echo json_encode($message , JSON_FORCE_OBJECT);
-
+    mail($destinatario, $asunto, $cuerpo, $headers);
+    
+    // include 'confirma.html'; //se debe crear un html que confirma el envío
+}
 ?>
