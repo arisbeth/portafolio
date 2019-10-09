@@ -82,7 +82,7 @@
 				<article id="contacto">
 					<h2 class="major">Contacto</h2>
 					<div class="[ js-form-container ]">
-						<form role="form" data-parsley-validate>
+						<form class="[ js-form-contacto ]" role="form" data-parsley-validate>
 							<div class="fields">
 								<div class="field half">
 									<label for="name">Nombre</label>
@@ -139,9 +139,9 @@
 		<script>
 			$(document).ready(function(){
 
-				$('[data-parsley-validate]').parsley();
-				$('form').on('submit', function(e){
-								sendContactEmail( this );
+				$('.js-form-contacto ').parsley();
+				$('.js-form-contacto ').on('submit', function(e){
+					sendContactEmail( this );
 				});
 
 				e.preventDefault();
