@@ -1,8 +1,8 @@
-<?php 
+<?php  
 
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$contact_message = isset( $_POST['message'] ) ? $_POST['message'] : '-';
+	$name = $_GET['name'];
+	$email = $_GET['email'];
+	$contact_message = isset( $_GET['message'] ) ? $_GET['message'] : '-';
 
 	// Cambiar por  contacto@sunland.mx
 	$to = 'arisbeth.hg@gmail.com';
@@ -28,3 +28,4 @@
 		);
 	echo json_encode($message , JSON_FORCE_OBJECT);
 
+?>

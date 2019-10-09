@@ -4,32 +4,6 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-var $=jQuery.noConflict();
-
-/**
- * Mandar email para pedir informes
- * @param element form
- */
-function sendContactEmail( form ){
-
-    var data = $( form ).serialize();
-    console.log( data );
-    $.post(
-        '../php/mail.php',
-        data,
-        function( response ){
-
-            var jsonResponse = $.parseJSON( response );
-            $('.js-form-container').addClass('hidden');
-            $('.js-name').text( jsonResponse.name );
-            $('.js-thankyou').removeClass('hidden');
-            landingAnalytics();
-
-        }
-    );
-
-}// sendContactEmail
-
 (function($) {
 
 	var	$window = $(window),

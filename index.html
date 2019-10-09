@@ -82,7 +82,7 @@
 				<article id="contacto">
 					<h2 class="major">Contacto</h2>
 					<div class="[ js-form-container ]">
-						<form class="[ js-form-contacto ]" role="form" data-parsley-validate>
+						<form action="contacto.php" method="get" role="form" data-parsley-validate>
 							<div class="fields">
 								<div class="field half">
 									<label for="name">Nombre</label>
@@ -133,20 +133,10 @@
 		<script src="assets/js/browser.min.js"></script>
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/parsley.min.js"></script>
-<!-- 		<script src="assets/js/util.js"></script>
- -->		<script src="assets/js/main.js"></script>
+<!-- 	<script src="assets/js/util.js"></script>
+-->		<script src="assets/js/main.js"></script>
 
-		<script>
-			$(document).ready(function(){
 
-				$('.js-form-contacto ').parsley();
-				$('.js-form-contacto ').on('submit', function(e){
-					sendContactEmail( this );
-				});
-
-				e.preventDefault();
-			});
-		</script>
 
 	</body>
 </html>
