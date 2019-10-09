@@ -23,6 +23,6 @@ if (!$_POST){
 
     mail($destinatario, $asunto, $cuerpo, $headers);
     
-    // include 'confirma.html'; //se debe crear un html que confirma el envío
+    include 'confirma.html'; //se debe crear un html que confirma el envío
 }
 ?>
