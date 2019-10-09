@@ -2,9 +2,9 @@
 
 	$name = $_GET['name'];
 	$email = $_GET['email'];
-	$contact_message = isset( $_GET['message'] ) ? $_GET['message'] : '-';
+	$message = isset( $_GET['message'] ) ? $_GET['message'] : '-';
 
-	// Cambiar por  contacto@sunland.mx
+	// Cambiar por  arisbeth.hg@sunland.mx
 	$to = 'arisbeth.hg@gmail.com';
 	$subject = 'Contacto desde portafolio';
 	$headers = 'From: Hola Arisbeth <arisbeth.hg@gmail.com>' . "\r\n";
@@ -17,7 +17,7 @@
 	$message = '<html><body>';
 	$message .= '<p>'.$name.' te a contactado desde tu bellisimo portafolio web ' . $instrument . '</p>';
 	$message .= '<p>Email: '. $email . '</p>';
-	if( $contact_message != '' ) $message .= '<p>Mensaje: '. $contact_message . '</p>';
+	if( $message != '' ) $message .= '<p>Mensaje: '. $message . '</p>';
 	$message .= '</body></html>';
 
 	mail($to, $subject, $message, $headers );
