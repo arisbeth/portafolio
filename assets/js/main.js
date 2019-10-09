@@ -15,7 +15,7 @@ function sendContactEmail( form ){
     var data = $( form ).serialize();
     console.log( data );
     $.post(
-        'php/mail.php',
+        '../php/mail.php',
         data,
         function( response ){
 
